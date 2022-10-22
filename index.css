@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+/* 見出し語確認用 見出し語は青、見出し語にしない語は水色で表示 */
+/*
+  .hw {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .nhw {
+    color: skyblue;
+    text-decoration: underline;
+  }
+*/
+
+
+#index h2 {
+    border: none;
+    font-size: 1.1em;
+    height: unset;
+    line-height: unset;
+    padding: 0.5em 1em;
+}
+
+#index h2::before {
+    content: "◇ ";
+}
+
+#index a {
+    color: transparent;
+}
+
+#index a::after {
+    content: target-counter(attr(href), page);
+    color: black;
+}
+
+
+#index dl div {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+#index dl div::after {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-bottom: dashed 1px;
+    content: "";
+    flex: auto;
+    order: 2;
+}
+
+#index dl dt {
+    flex: none;
+    order: 1;
+}
+
+#index dl dd {
+    width: 1.8em;
+    margin: 0;
+    order: 3;
+}
+
+#index dl dd::after {
+    content: ",";
+}
+
+#index dl dd:last-of-type()::after {
+    content: "";
+}
